@@ -4,7 +4,7 @@
 def getInput():
     left_numbers = []
     right_numbers = []
-    with open('day1.txt', 'r') as file: 
+    with open('day1/day1_input.txt', 'r') as file: 
         # split lines into 2 nums
         for line in file: 
             left, right = line.split() 
