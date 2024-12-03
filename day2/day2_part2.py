@@ -4,29 +4,30 @@ from day2_part1 import parseInput, increaseCheck
 def rule1(input, tolerance):
     increase = increaseCheck(input)
     control = input[0]
-    for num in input:
-        match increase:
-            case True:
-                if num < control:
+    i = 0
+    while i < len(input):
+        if increase:
+                if input[i] < control:
                     if tolerance == 0:
                         return False
                     else:
                         tolerance = 0
-                        input.remove(num)
+                        input.pop(i)
                         rule1(input, tolerance)
                 else:
-                    control = num
+                    control = input[i]
             
-            case False:
-                if num > control:
+        else:
+                if input[i] > control:
                     if tolerance == 0:
                         return False
                     else:
                         tolerance = 0
-                        input.remove(num)
+                        input.pop(i)
                         rule1(input, tolerance)
                 else:
-                    control = num
+                    control = input[i]
+        i += 1
             
     result = rule2(input, tolerance)
     return result
@@ -43,7 +44,8 @@ def rule2(input, tolerance):
                     return False
                 else:
                     tolerance = 0
-                    input.remove(input[i])
+                    input.pop(i)
+                    rule2(input, tolerance)
 
         else:
             if input[i] - input[i + 1] > 3 or input[i] - input[i + 1] < 1:
@@ -51,7 +53,8 @@ def rule2(input, tolerance):
                     return False
                 else:
                     tolerance = 0
-                    input.remove(input[i])
+                    input.pop(i)
+                    rule2(input, tolerance)
         
         i += 1
 
