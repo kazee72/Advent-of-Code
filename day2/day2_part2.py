@@ -41,9 +41,9 @@ def check_report(input):
         templist = input
         templist.remove(num)
         result = rule1(templist)
-        if result == False:
-            return False
-    return True
+        if result == True:
+            return True
+    return False
             
 
 
