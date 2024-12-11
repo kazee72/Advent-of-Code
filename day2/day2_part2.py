@@ -43,6 +43,7 @@ def check_report(input):
         result = rule1(templist)
         if result == True:
             return True
+        
     return False
             
 
