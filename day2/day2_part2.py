@@ -17,8 +17,7 @@ def rule1(input):
                     return False
                 else:
                     control = num
-            
-    return True
+    rule2(input)
 
 
 
@@ -38,8 +37,9 @@ def rule2(input):
 
 def check_report(input):
     for num in input:
-        templist = input
+        templist = input.copy()
         templist.remove(num)
+        print(templist)
         result = rule1(templist)
         if result == True:
             return True
@@ -52,7 +52,7 @@ def main(input):
     safe = 0
     for report in input:
         result = check_report(report)
-        if result == True:
+        if result:
             safe += 1
 
     print(safe)          
