@@ -36,9 +36,13 @@ def rule2(input):
 
 
 def check_report(input):
-    for num in input:
+    precheck = rule1(input)
+    if precheck:
+        return True
+
+    for i in range(len(input)):
         templist = input.copy()
-        templist.remove(num)
+        templist.pop(i)
         result = rule1(templist)
         if result == True:
             return True
