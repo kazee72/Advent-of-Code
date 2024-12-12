@@ -49,7 +49,7 @@ def vertical(i, j, input):
         if input[i + 1][j] == "M" and input[i + 2][j] == "A" and input[i + 3][j] == "S":
             counter += 1
 
-    if len(input) < i - 3:
+    if 0 <= i - 3:
         if input[i + 1][j] == "M" and input[i + 2][j] == "A" and input[i + 3][j] == "S":
             counter += 1
 
@@ -64,7 +64,7 @@ def diagonal(i, j, input):
             counter += 1
 
     if 0 >= i - 3 and len(input[i]) < j + 3:
-        if input[i - 1][j + 1] == "M" and input[i - 2][j + 2] == "A" and input[i - 3][j + 3] == "S":
+        if input[i + 1][j - 1] == "M" and input[i + 2][j - 2] == "A" and input[i + 3][j - 3] == "S":
             counter += 1
 
     if 0 >= i - 3 and len(input) < j + 3:
