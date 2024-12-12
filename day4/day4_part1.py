@@ -35,7 +35,7 @@ def horizontal(i, j, input):
         if input[i][j + 1] == "M" and input[i][j + 2] == "A" and input[i][j + 3] == "S":
             counter += 1
 
-    if len(input[i]) < j - 3:
+    if 0 <= j - 3:
         if input[i][j - 1] == "M" and input[i][j - 2] == "A" and input[i][j - 3] == "S":
             counter += 1
         
