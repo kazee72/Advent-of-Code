@@ -50,7 +50,7 @@ def vertical(i, j, input):
             counter += 1
 
     if 0 <= i - 3:
-        if input[i + 1][j] == "M" and input[i + 2][j] == "A" and input[i + 3][j] == "S":
+        if input[i - 1][j] == "M" and input[i - 2][j] == "A" and input[i - 3][j] == "S":
             counter += 1
 
     return counter
