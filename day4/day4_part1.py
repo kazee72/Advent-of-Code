@@ -23,7 +23,6 @@ def check_xmas(input):
                 total += hor + vert + diag
             else:
                 continue
- 
     
     return total
 
@@ -31,14 +30,15 @@ def check_xmas(input):
 
 def horizontal(i, j, input):
     counter = 0
+    print(i, j)
     if len(input[i]) > j + 3:
         if input[i][j + 1] == "M" and input[i][j + 2] == "A" and input[i][j + 3] == "S":
             counter += 1
 
-    if 0 <= j - 3:
+    if 0 >= j - 3:
         if input[i][j - 1] == "M" and input[i][j - 2] == "A" and input[i][j - 3] == "S":
             counter += 1
-        
+
     return counter
     
 
