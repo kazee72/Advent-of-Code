@@ -2,12 +2,12 @@
 
 
 def parse_input():
-    input = ""
+    input = []
     with open("day4_input.txt", "r") as file:
         for line in file:
             line = line.rstrip("\n")
-            input += line
-
+            input.append(line)
+    print(input)
     return input
 
 
@@ -30,7 +30,6 @@ def check_xmas(input):
 
 def horizontal(i, j, input):
     counter = 0
-    print(i, j)
     if len(input[i]) > j + 3:
         if input[i][j + 1] == "M" and input[i][j + 2] == "A" and input[i][j + 3] == "S":
             counter += 1
