@@ -7,7 +7,6 @@ def parse_input():
         for line in file:
             line = line.rstrip("\n")
             input.append(line)
-    print(input)
     return input
 
 
@@ -21,6 +20,7 @@ def check_xmas(input):
                 vert = vertical(i, j, input)
                 diag = diagonal(i, j, input)
                 total += hor + vert + diag
+                print("Index: x: " + str(i) +" and y: " +str(j) +" gives us horizontal: " +str(hor) +" and vertical: " + str(vert) + " and diagonal: " +str(diag)+" for a total of:" +str(total))
             else:
                 continue
     
@@ -34,7 +34,7 @@ def horizontal(i, j, input):
         if input[i][j + 1] == "M" and input[i][j + 2] == "A" and input[i][j + 3] == "S":
             counter += 1
 
-    if 0 >= j - 3:
+    if 0 <= j - 3:
         if input[i][j - 1] == "M" and input[i][j - 2] == "A" and input[i][j - 3] == "S":
             counter += 1
 
@@ -62,15 +62,15 @@ def diagonal(i, j, input):
         if input[i - 1][j - 1] == "M" and input[i - 2][j - 2] == "A" and input[i - 3][j - 3] == "S":
             counter += 1
 
-    if 0 <= j - 3 and len(input[i]) < i + 3:
+    if 0 <= j - 3 and len(input) > i + 3:
         if input[i + 1][j - 1] == "M" and input[i + 2][j - 2] == "A" and input[i + 3][j - 3] == "S":
             counter += 1
 
-    if 0 <= i - 3 and len(input) < j + 3:
+    if 0 <= i - 3 and len(input[i]) > j + 3:
         if input[i - 1][j + 1] == "M" and input[i - 2][j + 2] == "A" and input[i - 3][j + 3] == "S":
             counter += 1
 
-    if len(input[i]) < i + 3 and len(input) < j + 3:
+    if len(input[i]) > i + 3 and len(input) > j + 3:
         if input[i + 1][j + 1] == "M" and input[i + 2][j + 2] == "A" and input[i + 3][j + 3] == "S":
             counter += 1        
 
