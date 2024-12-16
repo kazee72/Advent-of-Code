@@ -16,29 +16,31 @@ def parse_input():
             line = line.strip("\n")
             
             if not switch:
-                temp.append(int(line[1:2]))
-                temp.append(int(line[4:]))
+                temp.append(line[0:2])
+                temp.append(line[3:])
                 rules.append(temp)
             else:
-                for num in line:
-                    if num == ",":
-                        continue
-                    temp.append(int(num))
-                updates.append(temp)
+                line = line.split(",")
+                updates.append(line)
 
     return rules, updates 
 
 
 
-
-    
-        
-
 def check(rules, update):
     for rule in rules:
         if rule[0] in update and rule[1] in update and update.index(rule[0]) > update.index(rule[1]):
             return False
-    return True
+    return update
+
+
+
+def calc(input):
+    result = 0
+    for update in input:
+        result += int(update[len(update) // 2])
+
+    return result
 
 
 
@@ -46,15 +48,15 @@ def main(input):
     rules = input[0]
     updates = input[1]
 
-    results = []
+    passed_updates = []
 
     for update in updates:
         result = check(rules, update)
-        results.append(result)
+        if result:
+            passed_updates.append(result)
 
-    print(results)
-
-
+    answer = calc(passed_updates)
+    print(answer)
 
 
 
