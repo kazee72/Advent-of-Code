@@ -1,6 +1,7 @@
 from day5_part1 import parse_input
 
 
+
 def check(rules, update):
     for rule in rules:
         if rule[0] in update and rule[1] in update and update.index(rule[0]) > update.index(rule[1]):
@@ -15,7 +16,6 @@ def switch(update, indices):
     update[indices[1]] = temp[0]
 
     return update
-
 
 
 
@@ -34,7 +34,9 @@ def main(input):
             switched = True
         
         if switched:
-            values.append(update[len(update)// 2 + 1])
+            values.append(update[len(update)// 2])
+
+    print(values)
         
     result = 0
     for value in values:
@@ -42,14 +44,7 @@ def main(input):
 
     print(result)
 
-        
-
-
     
-    
-
-
-
 
 if __name__ == "__main__":
     input = parse_input()
