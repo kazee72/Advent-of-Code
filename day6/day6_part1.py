@@ -25,7 +25,7 @@ def search_start(input):
 
 def move(input, pos, guard, dist_pos):
     dist_pos.append(pos.copy())
-    
+    print(pos)
     try:
         match guard:
             case "^":
